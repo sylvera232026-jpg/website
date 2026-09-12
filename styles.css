@@ -134,7 +134,7 @@ button { font-family: inherit; }
   gap: 10px;
   color: var(--color-ink);
 }
-.brand-mark { color: var(--color-accent); flex-shrink: 0; }
+.brand-mark { flex-shrink: 0; object-fit: contain; }
 .brand-word { display: flex; flex-direction: column; line-height: 1.05; }
 .brand-name {
   font-family: var(--font-head);
@@ -149,9 +149,9 @@ button { font-family: inherit; }
   font-weight: 500;
 }
 
-.main-nav ul { display: flex; gap: 34px; }
+.main-nav ul { display: flex; gap: 22px; }
 .main-nav a {
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 500;
   color: var(--color-slate);
   position: relative;
@@ -380,34 +380,100 @@ button { font-family: inherit; }
 }
 
 /* =========================================================
-   LEADERSHIP
+   INTERIOR PAGE HERO (Founders, Careers)
 ========================================================= */
-.leader-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 260px));
-  gap: 28px;
+.page-hero { padding: 68px 0 60px; background: var(--color-mist); border-bottom: 1px solid var(--color-mist-line); }
+.page-hero .breadcrumb {
+  font-size: 0.85rem;
+  color: var(--color-slate-light);
+  margin-bottom: 14px;
 }
-.leader-card {
+.page-hero .breadcrumb a:hover { color: var(--color-ink); }
+.page-hero h1 { font-size: clamp(1.9rem, 3.4vw, 2.6rem); max-width: 20ch; }
+.page-hero .page-lead { margin-top: 16px; max-width: 56ch; font-size: 1.05rem; }
+
+/* =========================================================
+   LEADERSHIP / FOUNDERS
+========================================================= */
+.placeholder-note {
+  display: inline-block;
+  background: var(--color-accent-soft);
+  color: #166862;
+  border: 1px solid #bfe0da;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  margin-bottom: 36px;
+}
+
+.founder-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+}
+.founder-card {
   border: 1px solid var(--color-mist-line);
   border-radius: var(--radius);
-  padding: 30px;
+  padding: 36px;
 }
 .leader-avatar {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 52px;
-  height: 52px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
   background: var(--color-ink);
   color: #fff;
   font-family: var(--font-head);
   font-weight: 700;
-  font-size: 1.15rem;
-  margin-bottom: 18px;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
 }
-.leader-card h3 { font-size: 1.1rem; margin-bottom: 4px; }
-.leader-card p { font-size: 0.9rem; color: var(--color-slate-light); }
+.founder-card h3 { font-size: 1.25rem; margin-bottom: 2px; }
+.founder-card .founder-title { font-size: 0.92rem; color: var(--color-accent); font-weight: 600; margin-bottom: 18px; }
+.founder-card p.founder-bio { font-size: 0.96rem; color: var(--color-slate); }
+.founder-card p.founder-bio + p.founder-bio { margin-top: 12px; }
+
+/* =========================================================
+   CAREERS
+========================================================= */
+.careers-intro p { max-width: 62ch; font-size: 1.05rem; margin-bottom: 16px; }
+.careers-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 48px;
+  align-items: start;
+}
+.careers-list li {
+  padding-left: 20px;
+  position: relative;
+  font-size: 0.96rem;
+  color: var(--color-ink);
+  font-weight: 500;
+  margin-bottom: 14px;
+}
+.careers-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background: var(--color-accent);
+}
+.careers-list p { font-weight: 400; color: var(--color-slate); font-size: 0.9rem; margin-top: 4px; }
+
+.roles-card {
+  border: 1px dashed var(--color-mist-line);
+  border-radius: var(--radius);
+  padding: 30px;
+  background: var(--color-mist);
+}
+.roles-card h3 { font-size: 1.05rem; margin-bottom: 10px; }
+.roles-card p { font-size: 0.94rem; margin-bottom: 20px; }
 
 /* =========================================================
    CONTACT
@@ -476,6 +542,7 @@ button { font-family: inherit; }
   padding-bottom: 44px;
   border-bottom: 1px solid rgba(255,255,255,0.1);
 }
+.footer-mark { margin-bottom: 12px; }
 .footer-brand .brand-name { color: #fff; display: block; font-family: var(--font-head); font-weight: 800; font-size: 1.05rem; }
 .footer-brand .brand-sub { display: block; font-size: 0.72rem; color: #8494A8; margin-top: 2px; }
 .footer-brand p { margin-top: 14px; font-size: 0.88rem; max-width: 26ch; }
@@ -520,7 +587,7 @@ button { font-family: inherit; }
   .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 880px) {
   .main-nav { display: none; }
   .header-actions .btn-sm { display: none; }
   .nav-toggle { display: flex; }
